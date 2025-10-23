@@ -57,7 +57,7 @@ def jogar():
         tabuleiro = [str(i) for i in range(1, 10)]
         jogador = "X"
         limpar_tela()
-        prints("=== Jogo da Velha ===")
+        printse("=== Jogo da Velha ===")
         print("Digite 'q' para sair a qualquer momento.")
         desenhar_tabuleiro(tabuleiro)
 
