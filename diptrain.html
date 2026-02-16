@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://nxl2hivcpkfxm.ok.kimi.link/ -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt;?php echo $site_title; ?&gt; - &lt;?php echo $site_description; ?&gt;</title>
+    <meta name="description" content="&lt;?php echo $site_description; ?&gt;">
+    <link rel="stylesheet" href="./diptrain_files/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./diptrain_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./diptrain_files/all.min.css">
+<script src="./diptrain_files/sdk-seed.js.download" defer=""></script><script src="./diptrain_files/preview-widgets.min.js.download" async=""></script><style>
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+    </style><style>
+            @keyframes float-particle {
+                0%, 100% {
+                    transform: translate(0, 0) scale(1);
+                    opacity: 0.3;
+                }
+                25% {
+                    transform: translate(20px, -20px) scale(1.2);
+                    opacity: 0.5;
+                }
+                50% {
+                    transform: translate(-10px, -40px) scale(1);
+                    opacity: 0.3;
+                }
+                75% {
+                    transform: translate(-30px, -10px) scale(0.8);
+                    opacity: 0.5;
+                }
+            }
+        </style><style>.vue-notification-group{display:block;position:fixed;z-index:5000}.vue-notification-wrapper{display:block;overflow:hidden;width:100%;margin:0;padding:0}.notification-title{font-weight:600}.vue-notification-template{display:block;box-sizing:border-box;background:#fff;text-align:left}.vue-notification{display:block;box-sizing:border-box;text-align:left;font-size:12px;padding:10px;margin:0 5px 5px;color:#fff;background:#44a4fc;border-left:5px solid #187FE7}.vue-notification.warn{background:#ffb648;border-left-color:#f48a06}.vue-notification.error{background:#e54d42;border-left-color:#b82e24}.vue-notification.success{background:#68cd86;border-left-color:#42a85f}.vn-fade-enter-active,.vn-fade-leave-active,.vn-fade-move{transition:all .5s}.vn-fade-enter-from,.vn-fade-leave-to{opacity:0}</style><style>.vue-notification-group{display:block;position:fixed;z-index:5000}.vue-notification-wrapper{display:block;overflow:hidden;width:100%;margin:0;padding:0}.notification-title{font-weight:600}.vue-notification-template{display:block;box-sizing:border-box;background:#fff;text-align:left}.vue-notification{display:block;box-sizing:border-box;text-align:left;font-size:12px;padding:10px;margin:0 5px 5px;color:#fff;background:#44a4fc;border-left:5px solid #187FE7}.vue-notification.warn{background:#ffb648;border-left-color:#f48a06}.vue-notification.error{background:#e54d42;border-left-color:#b82e24}.vue-notification.success{background:#68cd86;border-left-color:#42a85f}.vn-fade-enter-active,.vn-fade-leave-active,.vn-fade-move{transition:all .5s}.vn-fade-enter-from,.vn-fade-leave-to{opacity:0}</style>
+    <style>
+      .kimi-brand-container {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 99999999;
+        transition: opacity 0.3s ease;
+      }
+
+      .kimi-brand-close-icon {
+        cursor: pointer;
+        border-radius: 50%;
+        width: 26px;
+        height: 26px;
+        background: rgba(69, 69, 69, 0.70);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        border: 0.5px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .kimi-brand-container:hover .kimi-brand-close-icon {
+        display: flex;
+      }
+
+      .kimi-brand-link {
+        background: #000;
+        color: white;
+        padding: 4px 6px 4px 4px;
+        border-radius: 16px;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        border: 0.5px solid rgba(255, 255, 255, 0.15);
+        text-decoration: none;
+      }
+
+      .kimi-brand-container:hover .kimi-brand-icon {
+        width: 16px;
+      }
+
+      .kimi-brand-icon {
+        width: 0;
+        overflow: hidden;
+        transition: width 0.3s ease;
+        pointer-events: none;
+      }
+
+      .kimi-brand-avatar {
+        width: 18px;
+        height: 18px;
+        border: 0.5px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+      }
+    </style>
+  <link type="text/css" rel="stylesheet" href="./diptrain_files/css2(1)"><link type="text/css" rel="stylesheet" href="./diptrain_files/css2(1)"></head>
+<body class="loaded">
+    <!-- Navegação -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="logo">
+                <i class="fas fa-rocket"></i>
+                <span><!--?php echo $site_title; ?--></span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#home" class="nav-link active">Home</a></li>
+                <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#servicos" class="nav-link">Serviços</a></li>
+                <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#portfolio" class="nav-link">Portfólio</a></li>
+                <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#depoimentos" class="nav-link">Depoimentos</a></li>
+                <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="nav-link btn-primary">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg" style="transform: translateY(0px);"></div>
+        <div class="hero-particles" id="particles"><div class="particle" style="position: absolute; width: 4.20251px; height: 4.20251px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 53.2%; top: 33.127%; animation: 20.062s ease-in-out 1.7323s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 3.65115px; height: 3.65115px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 8.77938%; top: 79.7915%; animation: 24.2854s ease-in-out 3.28515s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 4.36475px; height: 4.36475px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 48.5286%; top: 70.2681%; animation: 21.3288s ease-in-out 1.66768s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 4.85966px; height: 4.85966px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 5.6708%; top: 42.0789%; animation: 29.6555s ease-in-out 2.70489s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 2.83454px; height: 2.83454px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 66.6037%; top: 79.567%; animation: 12.1133s ease-in-out 4.47205s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 2.00283px; height: 2.00283px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 91.8447%; top: 45.9474%; animation: 17.5655s ease-in-out 3.23391s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 2.49029px; height: 2.49029px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 90.8815%; top: 8.04883%; animation: 19.8697s ease-in-out 2.60048s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 4.78515px; height: 4.78515px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 58.2467%; top: 98.4506%; animation: 28.5137s ease-in-out 0.312992s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 5.84433px; height: 5.84433px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 28.1759%; top: 6.70401%; animation: 21.1601s ease-in-out 3.87543s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 5.06697px; height: 5.06697px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 20.1724%; top: 68.2446%; animation: 27.543s ease-in-out 2.3099s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 2.74423px; height: 2.74423px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 48.5525%; top: 1.85477%; animation: 24.1085s ease-in-out 2.87887s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 3.11313px; height: 3.11313px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 36.3134%; top: 20.4786%; animation: 24.0998s ease-in-out 4.16927s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 3.07784px; height: 3.07784px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 89.9637%; top: 82.5572%; animation: 21.4217s ease-in-out 0.140639s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 5.91848px; height: 5.91848px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 59.3515%; top: 7.40949%; animation: 15.4818s ease-in-out 3.38897s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 2.06869px; height: 2.06869px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 25.1995%; top: 6.17918%; animation: 15.9418s ease-in-out 3.35054s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 5.58698px; height: 5.58698px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 85.5658%; top: 33.776%; animation: 20.3017s ease-in-out 3.28676s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 2.28272px; height: 2.28272px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 83.2532%; top: 51.7719%; animation: 17.6202s ease-in-out 0.0157178s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 5.79129px; height: 5.79129px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 19.8746%; top: 59.5189%; animation: 26.9031s ease-in-out 0.66474s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 5.45215px; height: 5.45215px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 52.9097%; top: 70.1322%; animation: 11.7401s ease-in-out 3.69361s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 5.42412px; height: 5.42412px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 36.5244%; top: 36.0385%; animation: 29.6089s ease-in-out 4.26236s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 4.39781px; height: 4.39781px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 23.2747%; top: 31.9136%; animation: 28.2811s ease-in-out 2.39526s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 2.05595px; height: 2.05595px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 13.0164%; top: 37.2863%; animation: 18.9731s ease-in-out 4.89082s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 5.58804px; height: 5.58804px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 81.4386%; top: 28.5542%; animation: 19.452s ease-in-out 4.97022s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 4.02423px; height: 4.02423px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 24.1264%; top: 34.4531%; animation: 24.3347s ease-in-out 2.04162s infinite normal none running float-particle; pointer-events: none;"></div><div class="particle" style="position: absolute; width: 3.8819px; height: 3.8819px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; left: 34.4089%; top: 99.2426%; animation: 16.9868s ease-in-out 3.36554s infinite normal none running float-particle; pointer-events: none;"></div></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Excelência em Tecnologia</span>
+                </div>
+                <h1 class="hero-title">
+                    Transformamos <span class="gradient-text">Ideias</span> em<br>
+                    Soluções Digitais
+                </h1>
+                <p class="hero-description">
+                    Somos uma equipe apaixonada por criar experiências digitais memoráveis. 
+                    Desenvolvemos soluções inovadoras que impulsionam o crescimento do seu negócio.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="btn btn-primary btn-lg">
+                        <span>Começar Projeto</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://nxl2hivcpkfxm.ok.kimi.link/#portfolio" class="btn btn-outline btn-lg">
+                        <i class="fas fa-play"></i>
+                        <span>Ver Portfólio</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="500">500</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Projetos Entregues</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="98">98</span>
+                        <span class="stat-suffix">%</span>
+                        <span class="stat-label">Clientes Satisfeitos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="15">15</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Anos de Experiência</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="https://nxl2hivcpkfxm.ok.kimi.link/#sobre" class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Clientes Section -->
+    <section class="clients">
+        <div class="container">
+            <p class="clients-title">Empresas que confiam em nós</p>
+            <div class="clients-slider">
+                <div class="clients-track">
+                    <div class="client-logo"><i class="fab fa-google"></i></div>
+                    <div class="client-logo"><i class="fab fa-microsoft"></i></div>
+                    <div class="client-logo"><i class="fab fa-amazon"></i></div>
+                    <div class="client-logo"><i class="fab fa-meta"></i></div>
+                    <div class="client-logo"><i class="fab fa-apple"></i></div>
+                    <div class="client-logo"><i class="fab fa-netflix"></i></div>
+                    <div class="client-logo"><i class="fab fa-spotify"></i></div>
+                    <div class="client-logo"><i class="fab fa-airbnb"></i></div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="client-logo"><i class="fab fa-google"></i></div>
+                    <div class="client-logo"><i class="fab fa-microsoft"></i></div>
+                    <div class="client-logo"><i class="fab fa-amazon"></i></div>
+                    <div class="client-logo"><i class="fab fa-meta"></i></div>
+                    <div class="client-logo"><i class="fab fa-apple"></i></div>
+                    <div class="client-logo"><i class="fab fa-netflix"></i></div>
+                    <div class="client-logo"><i class="fab fa-spotify"></i></div>
+                    <div class="client-logo"><i class="fab fa-airbnb"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images">
+                    <div class="about-image main-image" style="transform: translateY(0px);">
+                        <img src="./diptrain_files/photo-1522071820081-009f0129c71c" alt="Nossa Equipe" class="loaded">
+                        <div class="experience-badge">
+                            <span class="exp-number">15+</span>
+                            <span class="exp-text">Anos de<br>Experiência</span>
+                        </div>
+                    </div>
+                    <div class="about-image secondary-image" style="transform: translateY(0px);">
+                        <img src="./diptrain_files/photo-1600880292203-757bb62b4baf" alt="Trabalho em Equipe" class="loaded">
+                    </div>
+                    <div class="floating-card">
+                        <div class="floating-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="floating-content">
+                            <span class="floating-number">50+</span>
+                            <span class="floating-text">Prêmios Ganhos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content fade-in-up" style="opacity: 0;">
+                    <div class="section-header">
+                        <span class="section-tag">Sobre Nós</span>
+                        <h2 class="section-title">Inovação e Excelência em Cada Projeto</h2>
+                    </div>
+                    <p class="about-text">
+                        A <strong>NovaTech Solutions</strong> nasceu da paixão por tecnologia e da vontade de criar 
+                        soluções que realmente fazem a diferença. Com mais de 15 anos no mercado, nos tornamos 
+                        referência em desenvolvimento de software e consultoria digital.
+                    </p>
+                    <p class="about-text">
+                        Nossa equipe multidisciplinar combina criatividade, expertise técnica e visão estratégica 
+                        para entregar projetos que superam expectativas e geram resultados mensuráveis.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span>Equipe especializada e certificada</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span>Metodologias ágeis e transparentes</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span>Suporte 24/7 para nossos clientes</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span>Garantia de satisfação em todos os projetos</span>
+                        </div>
+                    </div>
+                    <a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="btn btn-primary">
+                        <span>Conheça Nossa História</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section class="services" id="servicos">
+        <div class="services-bg"></div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">Nossos Serviços</span>
+                <h2 class="section-title">Soluções Completas para seu Negócio</h2>
+                <p class="section-description">
+                    Oferecemos um portfólio completo de serviços digitais para atender todas as necessidades da sua empresa
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in-up" style="opacity: 0;">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="service-title">Desenvolvimento Web</h3>
+                    <p class="service-description">
+                        Criamos sites e aplicações web modernas, responsivas e otimizadas para performance e SEO.
+                    </p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i>Sites Institucionais</li>
+                        <li><i class="fas fa-check"></i>E-commerces</li>
+                        <li><i class="fas fa-check"></i>Sistemas Web</li>
+                        <li><i class="fas fa-check"></i>Progressive Web Apps</li>
+                    </ul>
+                    <a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="service-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card featured fade-in-up" style="opacity: 0;">
+                    <div class="service-badge">Mais Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">Apps Mobile</h3>
+                    <p class="service-description">
+                        Desenvolvimento de aplicativos nativos e híbridos para iOS e Android com excelente UX.
+                    </p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i>Apps Nativos</li>
+                        <li><i class="fas fa-check"></i>React Native</li>
+                        <li><i class="fas fa-check"></i>Flutter</li>
+                        <li><i class="fas fa-check"></i>Publicação nas Lojas</li>
+                    </ul>
+                    <a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="service-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card fade-in-up" style="opacity: 0;">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="service-title">UI/UX Design</h3>
+                    <p class="service-description">
+                        Design de interfaces intuitivas e experiências memoráveis que encantam seus usuários.
+                    </p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i>Design de Interfaces</li>
+                        <li><i class="fas fa-check"></i>Prototipagem</li>
+                        <li><i class="fas fa-check"></i>Design Systems</li>
+                        <li><i class="fas fa-check"></i>Testes de Usabilidade</li>
+                    </ul>
+                    <a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="service-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card fade-in-up" style="opacity: 0;">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="service-title">Cloud &amp; DevOps</h3>
+                    <p class="service-description">
+                        Infraestrutura escalável na nuvem com automação, monitoramento e segurança de ponta.
+                    </p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i>AWS, Azure, GCP</li>
+                        <li><i class="fas fa-check"></i>CI/CD Pipelines</li>
+                        <li><i class="fas fa-check"></i>Containers &amp; K8s</li>
+                        <li><i class="fas fa-check"></i>Monitoramento 24/7</li>
+                    </ul>
+                    <a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="service-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card fade-in-up" style="opacity: 0;">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="service-title">Inteligência Artificial</h3>
+                    <p class="service-description">
+                        Soluções de IA e machine learning para automatizar processos e gerar insights.
+                    </p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i>Chatbots Inteligentes</li>
+                        <li><i class="fas fa-check"></i>Análise Preditiva</li>
+                        <li><i class="fas fa-check"></i>Processamento de Dados</li>
+                        <li><i class="fas fa-check"></i>Visão Computacional</li>
+                    </ul>
+                    <a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="service-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card fade-in-up" style="opacity: 0;">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title">Segurança Digital</h3>
+                    <p class="service-description">
+                        Proteção completa para seus sistemas e dados com as melhores práticas de segurança.
+                    </p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i>Auditoria de Segurança</li>
+                        <li><i class="fas fa-check"></i>Pentest</li>
+                        <li><i class="fas fa-check"></i>LGPD Compliance</li>
+                        <li><i class="fas fa-check"></i>Segurança em Nuvem</li>
+                    </ul>
+                    <a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="service-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">Portfólio</span>
+                <h2 class="section-title">Projetos que Nos Orgulham</h2>
+                <p class="section-description">
+                    Conheça alguns dos projetos que desenvolvemos para nossos clientes
+                </p>
+            </div>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in-up" data-category="web" style="opacity: 0;">
+                    <div class="portfolio-image">
+                        <img src="./diptrain_files/photo-1460925895917-afdab827c52f" alt="Projeto E-commerce" class="loaded">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <span class="portfolio-category">E-commerce</span>
+                                <h3 class="portfolio-title">Loja Virtual Premium</h3>
+                                <p class="portfolio-description">Plataforma de e-commerce com checkout otimizado</p>
+                                <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up" data-category="mobile" style="opacity: 0;">
+                    <div class="portfolio-image">
+                        <img src="./diptrain_files/photo-1512941937669-90a1b58e7e9c" alt="App Mobile" class="loaded">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <span class="portfolio-category">Mobile App</span>
+                                <h3 class="portfolio-title">App de Delivery</h3>
+                                <p class="portfolio-description">Aplicativo de entrega com rastreamento em tempo real</p>
+                                <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up" data-category="design" style="opacity: 0;">
+                    <div class="portfolio-image">
+                        <img src="./diptrain_files/photo-1561070791-2526d30994b5" alt="Design System" class="loaded">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <span class="portfolio-category">UI/UX Design</span>
+                                <h3 class="portfolio-title">Design System Completo</h3>
+                                <p class="portfolio-description">Sistema de design para grande empresa de tecnologia</p>
+                                <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up" data-category="web" style="opacity: 0;">
+                    <div class="portfolio-image">
+                        <img src="./diptrain_files/photo-1551288049-bebda4e38f71" alt="Dashboard" class="loaded">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <span class="portfolio-category">SaaS</span>
+                                <h3 class="portfolio-title">Dashboard Analytics</h3>
+                                <p class="portfolio-description">Painel de análise de dados em tempo real</p>
+                                <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up" data-category="mobile" style="opacity: 0;">
+                    <div class="portfolio-image">
+                        <img src="./diptrain_files/photo-1555421689-d68471e189f2" alt="Fintech App" class="loaded">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <span class="portfolio-category">Fintech</span>
+                                <h3 class="portfolio-title">App Bancário</h3>
+                                <p class="portfolio-description">Aplicativo de gestão financeira pessoal</p>
+                                <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up" data-category="web" style="opacity: 0;">
+                    <div class="portfolio-image">
+                        <img src="./diptrain_files/photo-1559136555-9303baea8ebd" alt="Plataforma Educação" class="loaded">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <span class="portfolio-category">Educação</span>
+                                <h3 class="portfolio-title">Plataforma EAD</h3>
+                                <p class="portfolio-description">Sistema completo de ensino à distância</p>
+                                <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-cta">
+                <a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="btn btn-primary btn-lg">
+                    <span>Ver Mais Projetos</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos Section -->
+    <section class="testimonials" id="depoimentos">
+        <div class="testimonials-bg"></div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">Depoimentos</span>
+                <h2 class="section-title">O que Nossos Clientes Dizem</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonials-track" style="transform: translateX(0%);">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "A NovaTech superou todas as nossas expectativas. O projeto foi entregue no prazo, 
+                            com qualidade excepcional e um suporte pós-lançamento impecável."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="./diptrain_files/photo-1560250097-0b93528c311a" alt="Carlos Silva" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">Carlos Silva</h4>
+                                <span class="author-role">CEO, TechStart Brasil</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Trabalhar com a NovaTech foi uma experiência transformadora. Nosso app aumentou 
+                            em 300% o engajamento dos nossos clientes. Recomendo fortemente!"
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="./diptrain_files/photo-1573496359142-b8d87734a5a2" alt="Ana Paula" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">Ana Paula Mendes</h4>
+                                <span class="author-role">Diretora de Marketing, FitLife</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Profissionalismo, criatividade e comprometimento. A equipe da NovaTech entendeu 
+                            perfeitamente nossas necessidades e entregou uma solução perfeita."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="./diptrain_files/photo-1472099645785-5658abf4ff4e" alt="Ricardo Oliveira" class="author-image loaded">
+                            <div class="author-info">
+                                <h4 class="author-name">Ricardo Oliveira</h4>
+                                <span class="author-role">CTO, Finanças+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonials-nav">
+                    <button class="testimonial-btn prev" aria-label="Anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonials-dots">
+                        <button class="dot active" data-index="0"></button>
+                        <button class="dot" data-index="1"></button>
+                        <button class="dot" data-index="2"></button>
+                    </div>
+                    <button class="testimonial-btn next" aria-label="Próximo">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto para Transformar seu Negócio?</h2>
+                <p class="cta-description">
+                    Vamos conversar sobre seu projeto. Entre em contato e receba uma proposta personalizada em 24 horas.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato" class="btn btn-white btn-lg">
+                        <span>Iniciar Conversa</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:+5511999999999" class="btn btn-outline-white btn-lg">
+                        <i class="fas fa-phone"></i>
+                        <span>Ligar Agora</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section class="contact" id="contato">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="section-header">
+                        <span class="section-tag">Contato</span>
+                        <h2 class="section-title">Vamos Criar Algo Incrível Juntos</h2>
+                        <p class="section-description">
+                            Preencha o formulário ou entre em contato diretamente. Estamos ansiosos para conhecer seu projeto!
+                        </p>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Endereço</h4>
+                                <p>Av. Paulista, 1000 - Bela Vista<br>São Paulo - SP, 01310-100</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Telefone</h4>
+                                <p>+55 (11) 9999-9999<br>+55 (11) 3333-3333</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>E-mail</h4>
+                                <p>contato@novatechsolutions.com.br<br>comercial@novatechsolutions.com.br</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Horário</h4>
+                                <p>Seg - Sex: 08:00 - 18:00<br>Sáb: 09:00 - 13:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <span>Siga-nos:</span>
+                        <div class="social-links">
+                            <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm" action="https://nxl2hivcpkfxm.ok.kimi.link/processa_contato.php" method="POST">
+                        <div class="form-header">
+                            <h3>Envie sua Mensagem</h3>
+                            <p>Responderemos em breve!</p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome *</label>
+                                <input type="text" id="nome" name="nome" required="" placeholder="Seu nome completo">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" required="" placeholder="seu@email.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                            </div>
+                            <div class="form-group">
+                                <label for="assunto">Assunto *</label>
+                                <select id="assunto" name="assunto" required="">
+                                    <option value="">Selecione um assunto</option>
+                                    <option value="orcamento">Solicitar Orçamento</option>
+                                    <option value="projeto">Novo Projeto</option>
+                                    <option value="suporte">Suporte Técnico</option>
+                                    <option value="parceria">Parceria</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem *</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" required="" placeholder="Conte-nos sobre seu projeto..."></textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" checked="">
+                                <span class="checkmark"></span>
+                                Quero receber novidades e conteúdos exclusivos
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-full">
+                            <span>Enviar Mensagem</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="footer-logo">
+                            <i class="fas fa-rocket"></i>
+                            <span><!--?php echo $site_title; ?--></span>
+                        </a>
+                        <p class="footer-description">
+                            Transformando ideias em soluções digitais extraordinárias. 
+                            Sua parceira em inovação tecnológica.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://nxl2hivcpkfxm.ok.kimi.link/#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h4 class="footer-title">Links Rápidos</h4>
+                        <ul>
+                            <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#home">Home</a></li>
+                            <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#sobre">Sobre Nós</a></li>
+                            <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#servicos">Serviços</a></li>
+                            <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#portfolio">Portfólio</a></li>
+                            <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#contato">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h4 class="footer-title">Serviços</h4>
+                        <ul>
+                            <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#">Desenvolvimento Web</a></li>
+                            <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#">Apps Mobile</a></li>
+                            <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#">UI/UX Design</a></li>
+                            <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#">Cloud &amp; DevOps</a></li>
+                            <li><a href="https://nxl2hivcpkfxm.ok.kimi.link/#">Inteligência Artificial</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-newsletter">
+                        <h4 class="footer-title">Newsletter</h4>
+                        <p>Receba novidades e dicas exclusivas no seu e-mail.</p>
+                        <form class="newsletter-form" action="https://nxl2hivcpkfxm.ok.kimi.link/newsletter.php" method="POST">
+                            <input type="email" name="email" placeholder="Seu melhor e-mail" required="">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>© <!--?php echo date('Y'); ?--> <!--?php echo $site_title; ?-->. Todos os direitos reservados.</p>
+                    <div class="footer-legal">
+                        <a href="https://nxl2hivcpkfxm.ok.kimi.link/#">Política de Privacidade</a>
+                        <a href="https://nxl2hivcpkfxm.ok.kimi.link/#">Termos de Uso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="./diptrain_files/main.js.download"></script>
+
+
+
+  <div class="kimi-brand-container">
+    <div class="kimi-brand-close-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.499 3.50216C12.7226 3.72574 12.7226 4.08825 12.499 4.31184L8.81035 8.00029L12.4972 11.6872C12.7208 11.9107 12.7208 12.2733 12.4972 12.4968C12.2736 12.7204 11.9111 12.7204 11.6875 12.4968L8.00066 8.80998L4.31221 12.4986C4.10582 12.705 3.78106 12.7209 3.55646 12.5463L3.50252 12.4986C3.27893 12.2751 3.27893 11.9126 3.50252 11.689L7.19098 8.00029L3.50107 4.31038C3.27748 4.0868 3.27748 3.72429 3.50107 3.5007C3.72465 3.27711 4.08716 3.27711 4.31075 3.5007L8.00066 7.19061L11.6893 3.50216C11.8957 3.29577 12.2205 3.27989 12.4451 3.45453L12.499 3.50216Z" fill="white" fill-opacity="0.84"></path>
+      </svg>
+    </div>
+
+    <a href="https://www.kimi.com/agent" target="_blank" class="kimi-brand-link">
+      <img src="data:image/png;base64,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" alt="Kimi" class="kimi-brand-avatar">
+      <span>Kimi Agent</span>
+      <svg width="16" height="16" class="kimi-brand-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2925 8.54311C14.5253 8.30855 14.5247 7.92983 14.2909 7.69611L10.5986 4.00381C10.3643 3.76949 9.98442 3.76949 9.7501 4.00381C9.51579 4.23812 9.51579 4.61802 9.7501 4.85233L12.4181 7.52038H1.86667C1.5353 7.52038 1.26667 7.78901 1.26667 8.12038C1.26667 8.45175 1.5353 8.72038 1.86667 8.72038H12.4255L9.74857 11.4167C9.51511 11.6519 9.51648 12.0318 9.75164 12.2652C9.9868 12.4987 10.3667 12.4973 10.6002 12.2622L14.2925 8.54311Z" fill="white" fill-opacity="0.84"></path>
+      </svg>
+    </a>
+  </div>
+    <div id="k9eej86c8b" style="display: block;"><template shadowrootmode="closed"><div id="4mp0q3vpac"><style type="text/css">
+  @import 'chrome-extension://gidejehfgombmkfflghejpncblgfkagj/app.css';
+</style>
+<div id="cuponomia" data-v-app=""><div></div></div>
+</div></template></div></body></html>
