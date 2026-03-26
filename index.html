@@ -71,58 +71,67 @@
     <button onclick="speakRates()">🔊 Ouvir cotação</button>
   </div>
 
- <script>
-  let lastUsd = null;
-  let lastEur = null;
+  <script>
+    let lastUsd = null;
+    let lastEur = null;
 
-  function speakRates() {
-    if (!lastUsd || !lastEur) return;
+    function speakRates() {
+      if (!lastUsd || !lastEur) return;
 
-    const texto = `Cotação do dólar atual: ${lastUsd} reais. Cotação do euro atual: ${lastEur} reais.`;
-    const speech = new SpeechSynthesisUtterance(texto);
-    speech.lang = "pt-BR";
+      const texto = `Cotação do dólar atual: ${lastUsd} reais. Cotação do euro atual: ${lastEur} reais.`;
 
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(speech);
-  }
+      const speech = new SpeechSynthesisUtterance(texto);
+      speech.lang = "pt-BR";
 
-  async function fetchRates() {
-    const updatedEl = document.getElementById("updated");
-
-    try {
-      updatedEl.innerText = "Atualizando...";
-
-      // usando proxy CORS
-      const url = "https://api.allorigins.win/raw?url=https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL";
-
-      const res = await fetch(url);
-      const data = await res.json();
-
-      const usd = parseFloat(data.USDBRL.bid).toFixed(2);
-      const eur = parseFloat(data.EURBRL.bid).toFixed(2);
-
-      lastUsd = usd;
-      lastEur = eur;
-
-      document.getElementById("usd").innerText = `USD: R$ ${usd}`;
-      document.getElementById("eur").innerText = `EUR: R$ ${eur}`;
-
-      updatedEl.innerText =
-        "Atualizado em: " + new Date().toLocaleTimeString();
-
-
-    } catch (e) {
-      document.getElementById("usd").innerText = "Erro ao carregar USD";
-      document.getElementById("eur").innerText = "Erro ao carregar EUR";
-
-      updatedEl.innerText = "Falha via proxy ❌";
-
-      console.error(e);
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(speech);
     }
-  }
 
-  fetchRates();
-  setInterval(fetchRates, 600000);
-</script>
+    async function fetchRates() {
+      const updatedEl = document.getElementById("updated");
+
+      try {
+        updatedEl.innerText = "Atualizando...";
+
+        const url = "https://api.allorigins.win/raw?url=https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL";
+
+        const res = await fetch(url);
+        const data = await res.json();
+
+        const usd = parseFloat(data.USDBRL.bid).toFixed(2);
+        const eur = parseFloat(data.EURBRL.bid).toFixed(2);
+
+        const mudou = (usd !== lastUsd || eur !== lastEur);
+
+        lastUsd = usd;
+        lastEur = eur;
+
+        document.getElementById("usd").innerText = `USD: R$ ${usd}`;
+        document.getElementById("eur").innerText = `EUR: R$ ${eur}`;
+
+        updatedEl.innerText =
+          "Atualizado em: " + new Date().toLocaleTimeString();
+
+        // 🔊 fala automaticamente só se mudou
+        if (mudou) {
+          speakRates();
+        }
+
+      } catch (e) {
+        document.getElementById("usd").innerText = "Erro ao carregar USD";
+        document.getElementById("eur").innerText = "Erro ao carregar EUR";
+
+        updatedEl.innerText = "Falha ao buscar cotação ❌";
+
+        console.error(e);
+      }
+    }
+
+    // primeira execução
+    fetchRates();
+
+    // atualiza a cada 15 minutos
+    setInterval(fetchRates, 900000);
+  </script>
 </body>
 </html>
