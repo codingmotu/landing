@@ -71,67 +71,98 @@
     <button onclick="speakRates()">🔊 Ouvir cotação</button>
   </div>
 
-  <script>
-    let lastUsd = null;
-    let lastEur = null;
+<script>
+  let lastUsd = null;
+  let lastEur = null;
 
-    function speakRates() {
-      if (!lastUsd || !lastEur) return;
+  function speakRates() {
+    if (!lastUsd || !lastEur) return;
 
-      const texto = `Cotação do dólar atual: ${lastUsd} reais. Cotação do euro atual: ${lastEur} reais.`;
+    const texto = `Cotação do dólar atual: ${lastUsd} reais. Cotação do euro atual: ${lastEur} reais.`;
 
-      const speech = new SpeechSynthesisUtterance(texto);
-      speech.lang = "pt-BR";
+    const speech = new SpeechSynthesisUtterance(texto);
+    speech.lang = "pt-BR";
 
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(speech);
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+  }
+
+  function atualizarUI(usd, eur) {
+    const updatedEl = document.getElementById("updated");
+
+    const mudou = (usd !== lastUsd || eur !== lastEur);
+
+    lastUsd = usd;
+    lastEur = eur;
+
+    document.getElementById("usd").innerText = `USD: R$ ${usd}`;
+    document.getElementById("eur").innerText = `EUR: R$ ${eur}`;
+
+    updatedEl.innerText =
+      "Atualizado em: " + new Date().toLocaleTimeString();
+
+    if (mudou) {
+      speakRates();
     }
+  }
 
-    async function fetchRates() {
-      const updatedEl = document.getElementById("updated");
+  function fetchRatesJSONP() {
+    const updatedEl = document.getElementById("updated");
+    updatedEl.innerText = "Atualizando...";
 
-      try {
-        updatedEl.innerText = "Atualizando...";
+    // remove script anterior se existir
+    const oldScript = document.getElementById("jsonp");
+    if (oldScript) oldScript.remove();
 
-        const url = "https://api.allorigins.win/raw?url=https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL";
+    const script = document.createElement("script");
+    script.id = "jsonp";
 
-        const res = await fetch(url);
-        const data = await res.json();
+    // API alternativa que permite JSONP
+    script.src = "https://api.currencyapi.com/v3/latest?apikey=demo&currencies=BRL&base_currency=USD&callback=handleUSD";
 
-        const usd = parseFloat(data.USDBRL.bid).toFixed(2);
-        const eur = parseFloat(data.EURBRL.bid).toFixed(2);
+    document.body.appendChild(script);
+  }
 
-        const mudou = (usd !== lastUsd || eur !== lastEur);
+  // callbacks JSONP
+  function handleUSD(data) {
+    try {
+      const usd = parseFloat(data.data.BRL.value).toFixed(2);
 
-        lastUsd = usd;
-        lastEur = eur;
+      // agora pega EUR
+      const script = document.createElement("script");
+      script.src = "https://api.currencyapi.com/v3/latest?apikey=demo&currencies=BRL&base_currency=EUR&callback=handleEUR";
 
-        document.getElementById("usd").innerText = `USD: R$ ${usd}`;
-        document.getElementById("eur").innerText = `EUR: R$ ${eur}`;
+      window._usdTemp = usd;
+      document.body.appendChild(script);
 
-        updatedEl.innerText =
-          "Atualizado em: " + new Date().toLocaleTimeString();
-
-        // 🔊 fala automaticamente só se mudou
-        if (mudou) {
-          speakRates();
-        }
-
-      } catch (e) {
-        document.getElementById("usd").innerText = "Erro ao carregar USD";
-        document.getElementById("eur").innerText = "Erro ao carregar EUR";
-
-        updatedEl.innerText = "Falha ao buscar cotação ❌";
-
-        console.error(e);
-      }
+    } catch (e) {
+      erro();
     }
+  }
 
-    // primeira execução
-    fetchRates();
+  function handleEUR(data) {
+    try {
+      const eur = parseFloat(data.data.BRL.value).toFixed(2);
 
-    // atualiza a cada 15 minutos
-    setInterval(fetchRates, 900000);
-  </script>
+      atualizarUI(window._usdTemp, eur);
+
+    } catch (e) {
+      erro();
+    }
+  }
+
+  function erro() {
+    document.getElementById("usd").innerText = "Erro ao carregar USD";
+    document.getElementById("eur").innerText = "Erro ao carregar EUR";
+    document.getElementById("updated").innerText = "Falha geral ❌";
+  }
+
+  // primeira execução
+  fetchRatesJSONP();
+
+  // atualiza a cada 15 minutos
+  setInterval(fetchRatesJSONP, 900000);
+</script>
+  
 </body>
 </html>
