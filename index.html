@@ -49,22 +49,29 @@
 <script>
   async function fetchRates() {
     try {
-      const response = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL');
-      const data = await response.json();
+      const res = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL");
+      const text = await res.text();
+
+      // tenta converter manualmente (mais tolerante)
+      const data = JSON.parse(text);
 
       const usd = parseFloat(data.USDBRL.bid).toFixed(2);
       const eur = parseFloat(data.EURBRL.bid).toFixed(2);
 
-      document.getElementById('usd').innerText = `USD: R$ ${usd}`;
-      document.getElementById('eur').innerText = `EUR: R$ ${eur}`;
+      document.getElementById("usd").innerText = `USD: R$ ${usd}`;
+      document.getElementById("eur").innerText = `EUR: R$ ${eur}`;
 
-      const now = new Date();
-      document.getElementById('updated').innerText =
-        `Atualizado em: ${now.toLocaleTimeString()}`;
-    } catch (error) {
-      document.getElementById('usd').innerText = 'Erro ao carregar';
-      document.getElementById('eur').innerText = 'Erro ao carregar';
-      console.error(error);
+      document.getElementById("updated").innerText =
+        "Atualizado em: " + new Date().toLocaleTimeString();
+
+    } catch (e) {
+      document.getElementById("usd").innerText = "Erro ao carregar USD";
+      document.getElementById("eur").innerText = "Erro ao carregar EUR";
+
+      document.getElementById("updated").innerText =
+        "Erro: " + e.message;
+
+      console.error("Erro real:", e);
     }
   }
 
