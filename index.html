@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cotação com Voz</title>
+  <title>Cotação</title>
 
   <style>
     body {
@@ -19,32 +19,34 @@
 
     .card {
       background: #1e293b;
-      padding: 30px;
+      padding: 20px;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       text-align: center;
-      width: 320px;
+      width: 350px;
     }
 
     h1 {
-      margin-bottom: 20px;
-      font-size: 22px;
+      margin-bottom: 15px;
     }
 
-    .value {
-      font-size: 26px;
-      margin: 10px 0;
+    iframe {
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      height: 120px;
+      margin-bottom: 10px;
     }
 
     .updated {
-      margin-top: 10px;
       font-size: 12px;
       color: #94a3b8;
+      margin-top: 10px;
     }
 
     button {
       margin-top: 15px;
-      padding: 10px 15px;
+      padding: 10px;
       border: none;
       border-radius: 10px;
       background: #22c55e;
@@ -63,106 +65,34 @@
   <div class="card">
     <h1>💱 Cotações</h1>
 
-    <div class="value" id="usd">USD: carregando...</div>
-    <div class="value" id="eur">EUR: carregando...</div>
+    <!-- USD -->
+    <iframe src="https://wise.com/br/currency-converter/usd-to-brl-rate?amount=1"></iframe>
 
-    <div class="updated" id="updated"></div>
+    <!-- EUR -->
+    <iframe src="https://wise.com/br/currency-converter/eur-to-brl-rate?amount=1"></iframe>
 
-    <button onclick="speakRates()">🔊 Ouvir cotação</button>
+    <div class="updated" id="updated">
+      Página atualiza automaticamente a cada 15 minutos
+    </div>
+
+    <button onclick="falar()">🔊 Ouvir cotação</button>
   </div>
 
-<script>
-  let lastUsd = null;
-  let lastEur = null;
+  <script>
+    function falar() {
+      const texto = "A cotação do dólar e do euro está exibida na tela.";
 
-  function speakRates() {
-    if (!lastUsd || !lastEur) return;
+      const speech = new SpeechSynthesisUtterance(texto);
+      speech.lang = "pt-BR";
 
-    const texto = `Cotação do dólar atual: ${lastUsd} reais. Cotação do euro atual: ${lastEur} reais.`;
-
-    const speech = new SpeechSynthesisUtterance(texto);
-    speech.lang = "pt-BR";
-
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(speech);
-  }
-
-  function atualizarUI(usd, eur) {
-    const updatedEl = document.getElementById("updated");
-
-    const mudou = (usd !== lastUsd || eur !== lastEur);
-
-    lastUsd = usd;
-    lastEur = eur;
-
-    document.getElementById("usd").innerText = `USD: R$ ${usd}`;
-    document.getElementById("eur").innerText = `EUR: R$ ${eur}`;
-
-    updatedEl.innerText =
-      "Atualizado em: " + new Date().toLocaleTimeString();
-
-    if (mudou) {
-      speakRates();
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(speech);
     }
-  }
 
-  function fetchRatesJSONP() {
-    const updatedEl = document.getElementById("updated");
-    updatedEl.innerText = "Atualizando...";
-
-    // remove script anterior se existir
-    const oldScript = document.getElementById("jsonp");
-    if (oldScript) oldScript.remove();
-
-    const script = document.createElement("script");
-    script.id = "jsonp";
-
-    // API alternativa que permite JSONP
-    script.src = "https://api.currencyapi.com/v3/latest?apikey=demo&currencies=BRL&base_currency=USD&callback=handleUSD";
-
-    document.body.appendChild(script);
-  }
-
-  // callbacks JSONP
-  function handleUSD(data) {
-    try {
-      const usd = parseFloat(data.data.BRL.value).toFixed(2);
-
-      // agora pega EUR
-      const script = document.createElement("script");
-      script.src = "https://api.currencyapi.com/v3/latest?apikey=demo&currencies=BRL&base_currency=EUR&callback=handleEUR";
-
-      window._usdTemp = usd;
-      document.body.appendChild(script);
-
-    } catch (e) {
-      erro();
-    }
-  }
-
-  function handleEUR(data) {
-    try {
-      const eur = parseFloat(data.data.BRL.value).toFixed(2);
-
-      atualizarUI(window._usdTemp, eur);
-
-    } catch (e) {
-      erro();
-    }
-  }
-
-  function erro() {
-    document.getElementById("usd").innerText = "Erro ao carregar USD";
-    document.getElementById("eur").innerText = "Erro ao carregar EUR";
-    document.getElementById("updated").innerText = "Falha geral ❌";
-  }
-
-  // primeira execução
-  fetchRatesJSONP();
-
-  // atualiza a cada 15 minutos
-  setInterval(fetchRatesJSONP, 900000);
-</script>
-  
+    // auto refresh da página a cada 15 minutos
+    setTimeout(() => {
+      location.reload();
+    }, 900000);
+  </script>
 </body>
 </html>
