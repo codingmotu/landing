@@ -110,6 +110,9 @@
       updatedEl.innerText =
         "Atualizado em: " + new Date().toLocaleTimeString();
 
+      // 🔊 fala automaticamente
+      speakRates();
+
     } catch (e) {
       document.getElementById("usd").innerText = "Erro ao carregar USD";
       document.getElementById("eur").innerText = "Erro ao carregar EUR";
