@@ -71,60 +71,57 @@
     <button onclick="speakRates()">🔊 Ouvir cotação</button>
   </div>
 
-  <script>
-    let lastUsd = null;
-    let lastEur = null;
+ <script>
+  let lastUsd = null;
+  let lastEur = null;
 
-    function speakRates() {
-      if (!lastUsd || !lastEur) return;
+  function speakRates() {
+    if (!lastUsd || !lastEur) return;
 
-      const texto = `Cotação do dólar atual: ${lastUsd} reais. Cotação do euro atual: ${lastEur} reais.`;
+    const texto = `Cotação do dólar atual: ${lastUsd} reais. Cotação do euro atual: ${lastEur} reais.`;
+    const speech = new SpeechSynthesisUtterance(texto);
+    speech.lang = "pt-BR";
 
-      const speech = new SpeechSynthesisUtterance(texto);
-      speech.lang = "pt-BR";
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+  }
 
-      window.speechSynthesis.cancel(); // evita sobreposição
-      window.speechSynthesis.speak(speech);
+  async function fetchRates() {
+    const updatedEl = document.getElementById("updated");
+
+    try {
+      updatedEl.innerText = "Atualizando...";
+
+      // usando proxy CORS
+      const url = "https://api.allorigins.win/raw?url=https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL";
+
+      const res = await fetch(url);
+      const data = await res.json();
+
+      const usd = parseFloat(data.USDBRL.bid).toFixed(2);
+      const eur = parseFloat(data.EURBRL.bid).toFixed(2);
+
+      lastUsd = usd;
+      lastEur = eur;
+
+      document.getElementById("usd").innerText = `USD: R$ ${usd}`;
+      document.getElementById("eur").innerText = `EUR: R$ ${eur}`;
+
+      updatedEl.innerText =
+        "Atualizado em: " + new Date().toLocaleTimeString();
+
+    } catch (e) {
+      document.getElementById("usd").innerText = "Erro ao carregar USD";
+      document.getElementById("eur").innerText = "Erro ao carregar EUR";
+
+      updatedEl.innerText = "Falha via proxy ❌";
+
+      console.error(e);
     }
+  }
 
-    async function fetchRates() {
-      const updatedEl = document.getElementById("updated");
-
-      try {
-        updatedEl.innerText = "Atualizando...";
-
-        const res = await fetch("https://api.frankfurter.app/latest?from=BRL&to=USD,EUR");
-        const data = await res.json();
-
-        if (!data.rates) throw new Error("API inválida");
-
-        const usd = (1 / data.rates.USD).toFixed(2);
-        const eur = (1 / data.rates.EUR).toFixed(2);
-
-        lastUsd = usd;
-        lastEur = eur;
-
-        document.getElementById("usd").innerText = `USD: R$ ${usd}`;
-        document.getElementById("eur").innerText = `EUR: R$ ${eur}`;
-
-        updatedEl.innerText =
-          "Atualizado em: " + new Date().toLocaleTimeString();
-
-      } catch (e) {
-        document.getElementById("usd").innerText = "Erro ao carregar USD";
-        document.getElementById("eur").innerText = "Erro ao carregar EUR";
-
-        updatedEl.innerText = "Falha ao buscar cotação";
-
-        console.error(e);
-      }
-    }
-
-    // executa ao carregar
-    fetchRates();
-
-    // atualiza a cada 10 minutos
-    setInterval(fetchRates, 600000);
-  </script>
+  fetchRates();
+  setInterval(fetchRates, 600000);
+</script>
 </body>
 </html>
